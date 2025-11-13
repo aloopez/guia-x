@@ -5,6 +5,7 @@ import cors from "cors";
 import userRouter from "./routes/userRoutes.js";
 import customerRouter from "./routes/customerRoutes.js";
 import 'dotenv/config';
+import salesRouter from "./routes/salesRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,15 +13,6 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 app.use(bodyParser.json());
 app.use(cors());
-
-/* const generarHashEjemplo = async () => {
-  const saltRounds = 10;
-  const plainTextPassword = "1234";
-  const hash = await bcrypt.hash(plainTextPassword, saltRounds);
-  console.log(`Hashed password for '${plainTextPassword}': ${hash}`);
-};
-
-generarHashEjemplo(); */ // Descomentar para generar un hash de ejemplo
 
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -38,6 +30,7 @@ const verifyToken = (req, res, next) => {
 
 app.use("/api", userRouter);
 app.use("/api", customerRouter);
+app.use("/api", salesRouter);
 
 app.get("/api/protected", verifyToken, (req, res) => {
   res.status(200).json({ message: "Protected data accessed", user: req.user });
