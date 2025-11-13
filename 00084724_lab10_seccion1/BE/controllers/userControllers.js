@@ -1,8 +1,9 @@
 import bcrypt from "bcrypt";
 import pool from "../config/db.js";
 import jwt from "jsonwebtoken";
+import 'dotenv/config';
 
-const JWT_SECRET = "hola"; // Use a strong, secure key in production
+const JWT_SECRET = process.env.JWT_SECRET; // Use a strong, secure key in production
 
 const getUsers = (request, response) => {
   pool.query("SELECT * FROM users ORDER BY id ASC", (error, results) => {
