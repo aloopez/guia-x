@@ -3,8 +3,7 @@
 
 import React, { useState } from 'react';
 
-// URL de tu API de backend.
-// Asegúrate de que el puerto (5000) coincida con el de tu servidor BE.
+// URL de API de BE
 const API_URL = 'http://localhost:5001/api/sales';
 
 function SalesForm() {
@@ -68,4 +67,4 @@ function SalesForm() {
   );
 }
 
-export default SalesForm;
+export default SalesForm ;

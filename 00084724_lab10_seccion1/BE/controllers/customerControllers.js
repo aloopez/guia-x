@@ -15,7 +15,7 @@ const getCustomers = (request, response) => {
 };
 
 const getCustomerByCode = (request, response) => {
-  const { code } = request.query; // Obtener 'code' de los query params [cite: 74]
+  const { code } = request.query; // Obtener 'code' de los query params
 
   if (!code) {
     return response
@@ -24,7 +24,6 @@ const getCustomerByCode = (request, response) => {
   }
 
   try {
-    // Consulta según la guía [cite: 75]
     pool.query(
       "SELECT * FROM customers WHERE code = $1",
       [code],

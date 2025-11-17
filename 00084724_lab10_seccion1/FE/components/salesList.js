@@ -1,9 +1,9 @@
 // Componente SalesList que muestre: ID venta, monto, fecha, nombre del cliente. 
 import React, { useState, useEffect } from 'react';
 
-// URL de tu API de backend.
-// Asegúrate de que el puerto (5000) coincida con el de tu servidor BE.
+// URL de API de BE
 const API_URL = 'http://localhost:5001/api/sales';
+
 function SalesList() {
   // Estado para guardar la lista de ventas
   const [sales, setSales] = useState([]);

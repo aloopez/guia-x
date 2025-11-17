@@ -3,7 +3,7 @@ import pool from "../config/db.js";
 const postSales = async (request, response) => {
   const { amount, id_customer } = request.body;
 
-  // 1. Validar que los datos necesarios estén presentes
+  // Validar que los datos necesarios estén presentes
   if (!amount || !id_customer) {
     return response
       .status(400)
@@ -11,7 +11,7 @@ const postSales = async (request, response) => {
   }
 
   try {
-    // 2. Validar que id_customer exista en la tabla customers [cite: 57]
+    // Validar que id_customer exista en la tabla customers 
     const customerCheck = await pool.query(
       "SELECT * FROM customers WHERE id = $1",
       [id_customer]
@@ -23,7 +23,7 @@ const postSales = async (request, response) => {
         .json({ message: "Error: El cliente (id_customer) no existe" });
     }
 
-    // 3. Insertar en sales con amount y created_at (usar NOW()) [cite: 58]
+    // Insertar en sales con amount y created_at (usar NOW()) 
     const result = await pool.query(
       "INSERT INTO sales (amount, created_at, id_customer) VALUES ($1, NOW(), $2) RETURNING *",
       [amount, id_customer]

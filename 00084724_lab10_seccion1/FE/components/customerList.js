@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// URL de tu API de backend.
-// Asegúrate de que el puerto (5000) coincida con el de tu servidor BE.
 const API_URL = 'http://localhost:5001/api/customers';
 
 function CustomerList() {
@@ -62,7 +60,7 @@ function CustomerList() {
   // Si todo salió bien, muestra la tabla
   return (
     <div>
-      <h2>Lista de Clientes (Ejercicio 2)</h2>
+      <h2>Lista de Clientes </h2>
       <table border="1" style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
           <tr>
